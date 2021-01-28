@@ -20,7 +20,7 @@ function main()
     --nick = sampGetPlayerNickname(id)
     --wait(5000)
     --if nick == 'Tim_Rojers' then
-      --  sampAddChatMessage('Произошел троллинг, ты выйдешь из игры через ' .. white_color .. '10' .. main_color_text .. ' секунд xD',main_color)
+      --  sampAddChatMessage('РџСЂРѕРёР·РѕС€РµР» С‚СЂРѕР»Р»РёРЅРі, С‚С‹ РІС‹Р№РґРµС€СЊ РёР· РёРіСЂС‹ С‡РµСЂРµР· ' .. white_color .. '10' .. main_color_text .. ' СЃРµРєСѓРЅРґ xD',main_color)
        -- wait(10000)
       --  sendEmptyPacket(PACKET_DISCONNECTION_NOTIFICATION)
       --  closeConnect()
@@ -32,7 +32,7 @@ function main()
     settings = inicfg.load(nil, direct)
     wait(5000)
     if settings == nil or settings.SETTINGS.speedcar == nil or settings.SETTINGS.speedped == nil or settings.SETTINGS.key == nil then
-        sampShowDialog(125466000228 ,'Информация','Вы в первый раз запустили скрипт поэтому значения будут выставлены по стандарту\n\n Скорость авто = 1.5\n Скорость персонажа = 0.3','Установить по стандарту','Отключить',0)
+        sampShowDialog(125466000228 ,'РРЅС„РѕСЂРјР°С†РёСЏ','Р’С‹ РІ РїРµСЂРІС‹Р№ СЂР°Р· Р·Р°РїСѓСЃС‚РёР»Рё СЃРєСЂРёРїС‚ РїРѕСЌС‚РѕРјСѓ Р·РЅР°С‡РµРЅРёСЏ Р±СѓРґСѓС‚ РІС‹СЃС‚Р°РІР»РµРЅС‹ РїРѕ СЃС‚Р°РЅРґР°СЂС‚Сѓ\n\n РЎРєРѕСЂРѕСЃС‚СЊ Р°РІС‚Рѕ = 1.5\n РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂСЃРѕРЅР°Р¶Р° = 0.3','РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РїРѕ СЃС‚Р°РЅРґР°СЂС‚Сѓ','РћС‚РєР»СЋС‡РёС‚СЊ',0)
         repeat wait(0) until not sampIsDialogActive(125466000228)
         local res, button, list, input = sampHasDialogRespond(125466000228)
         if button == 1 then
@@ -49,8 +49,8 @@ function main()
             thisScript():unload()
         end
     end
-    sampAddChatMessage('[AirBrake] - Версия скрипта 0.1',-1)
-    sampAddChatMessage('[AirBrake] - Автор скрипта:Clinton',-1)
+    sampAddChatMessage('[AirBrake] - Р’РµСЂСЃРёСЏ СЃРєСЂРёРїС‚Р° 0.1',-1)
+    sampAddChatMessage('[AirBrake] - РђРІС‚РѕСЂ СЃРєСЂРёРїС‚Р°:Clinton',-1)
     sampRegisterChatCommand('aspeed', function() lua_thread.create(set) end)
     settings = inicfg.load(nil, direct)
     while true do wait(0)
@@ -64,12 +64,12 @@ function main()
 end
 
 function set()
-    text = 'Скорость авто:\t '..settings.SETTINGS.speedcar.. '\nСкорость персонажа:\t'..settings.SETTINGS.speedped
-    sampShowDialog(587342856,'AirBrake',text,'Продолжить', 'Закрыть',4)
+    text = 'РЎРєРѕСЂРѕСЃС‚СЊ Р°РІС‚Рѕ:\t '..settings.SETTINGS.speedcar.. '\nРЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂСЃРѕРЅР°Р¶Р°:\t'..settings.SETTINGS.speedped
+    sampShowDialog(587342856,'AirBrake',text,'РџСЂРѕРґРѕР»Р¶РёС‚СЊ', 'Р—Р°РєСЂС‹С‚СЊ',4)
     repeat wait(0) until sampIsDialogActive(587342856)
     local res, button, list, input = sampHasDialogRespond(587342856)
     if button == 1 and list == 0 then
-        sampShowDialog(42424242,'Настройка скорости авто','Значение по умолчанию: 1.5\n\n Значение сейчас: '..settings.SETTINGS.speedcar,'Сохранить','Закрыть',1)
+        sampShowDialog(42424242,'РќР°СЃС‚СЂРѕР№РєР° СЃРєРѕСЂРѕСЃС‚Рё Р°РІС‚Рѕ','Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ: 1.5\n\n Р—РЅР°С‡РµРЅРёРµ СЃРµР№С‡Р°СЃ: '..settings.SETTINGS.speedcar,'РЎРѕС…СЂР°РЅРёС‚СЊ','Р—Р°РєСЂС‹С‚СЊ',1)
         repeat wait(0) until not sampIsDialogActive(42424242)
         res, button, list, input = sampHasDialogRespond(42424242)
         if button == 1 then
@@ -78,13 +78,13 @@ function set()
                 settings.SETTINGS.speedcar = input
                 inicfg.save(settings, '..\\config\\air.ini')
                 settings = inicfg.load(nil, direct)
-                sampAddChatMessage('Новое значение сохранено!',-1)
+                sampAddChatMessage('РќРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃРѕС…СЂР°РЅРµРЅРѕ!',-1)
             else
-                sampAddChatMessage('Новое значение введено неверно',-1)
+                sampAddChatMessage('РќРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РІРІРµРґРµРЅРѕ РЅРµРІРµСЂРЅРѕ',-1)
             end
         end
     elseif button == 1 and list == 1 then
-        sampShowDialog(65436534634,'Настройка скорости персонажа','Стандартное значение: 0.3\n\n Значение сейчас:'..settings.SETTINGS.speedped,'Сохранить','Закрыть',1)
+        sampShowDialog(65436534634,'РќР°СЃС‚СЂРѕР№РєР° СЃРєРѕСЂРѕСЃС‚Рё РїРµСЂСЃРѕРЅР°Р¶Р°','РЎС‚Р°РЅРґР°СЂС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ: 0.3\n\n Р—РЅР°С‡РµРЅРёРµ СЃРµР№С‡Р°СЃ:'..settings.SETTINGS.speedped,'РЎРѕС…СЂР°РЅРёС‚СЊ','Р—Р°РєСЂС‹С‚СЊ',1)
         repeat wait(0) until not sampIsDialogActive(65436534634)
         res, button, list, input = sampHasDialogRespond(65436534634)
         if button == 1 then
@@ -93,9 +93,9 @@ function set()
                 settings.SETTINGS.speedped = input
                 inicfg.save(settings, '..\\config\\air.ini')
                 settings = inicfg.load(nil, direct)
-                sampAddChatMessage('Новое значение сохранено!', -1)
+                sampAddChatMessage('РќРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃРѕС…СЂР°РЅРµРЅРѕ!', -1)
             else
-                sampAddChatMessage('Новое значение введено неверно!' -1)
+                sampAddChatMessage('РќРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РІРІРµРґРµРЅРѕ РЅРµРІРµСЂРЅРѕ!' -1)
             end
         end
     end
@@ -103,7 +103,7 @@ end
 
 function airb()
     sh = {}
-    if air then sampAddChatMessage('[AirBrake] - Активирован', -1) else sampAddChatMessage('[AirBrake] - Деактивирован', -1) end
+    if air then sampAddChatMessage('[AirBrake] - РђРєС‚РёРІРёСЂРѕРІР°РЅ', -1) else sampAddChatMessage('[AirBrake] - Р”РµР°РєС‚РёРІРёСЂРѕРІР°РЅ', -1) end
     while air do wait(0)
         local _, id = sampGetPlayerIdByCharHandle(playerPed)
         local fX, fY, fZ = getActiveCameraCoordinates()
